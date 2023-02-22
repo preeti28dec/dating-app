@@ -163,9 +163,9 @@ export default function SingUpPage() {
   );
 }
 const Container = styled.div`
-  max-width: 450px;
+  /* max-width: 450px;
   width: 100%;
-  margin: auto;
+  margin: auto; */
 
   .input {
     border: 1px solid gray;

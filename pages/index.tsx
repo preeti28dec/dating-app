@@ -21,7 +21,7 @@ export default function Home() {
   );
 }
 const Container = styled.div`
-  max-width: 450px;
+  /* max-width: 450px;
   width: 100%;
-  margin: auto;
+  margin: auto; */
 `;

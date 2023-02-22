@@ -31,17 +31,20 @@ export default function Login() {
 
       <div className='flex gap-2 items-center my-4'>
         <hr className='h-2 w-[50%] ' />
-        <span className='text-[20px] pb-2 text-white'>OR</span>{" "}
+        <span className='text-[20px] pb-2 text-white'>OR</span>
         <hr className='h-2 w-[50%]' />
       </div>
-      <Link href='/login'>
+      <Link href='/sign-up'>
         <div className='sign-up'>
           <button>Sign up with Email</button>
         </div>
       </Link>
       <div className='text-center'>
         <p>
-          Existing account? <span className='text-white'>Log in</span>
+          Existing account?
+          <Link href='/login'>
+            <span className='text-white'>Log in</span>
+          </Link>
         </p>
       </div>
     </Root>

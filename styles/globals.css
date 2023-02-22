@@ -7,27 +7,38 @@ body[data-theme="light"] {
   --color-text-primary: #27201a;
   --color-bg-primary: #fff;
   --color-bg-toggle: #1e90ff;
-  --color-paragraph:#B9C1BE;
-  --color-button:#F3F6F6;
-  --color-profile: #1E1E1E;
+  --color-paragraph: #b9c1be;
+  --color-button: #f3f6f6;
+  --color-profile: #1e1e1e;
+  --bg-color: #f8f8fb;
+  --calls-bg-color:#000e08;
+  --profile-bg-color:#051d13;
 }
 body[data-theme="dark"] {
   --color-text-primary: #e3e3e3;
-  --color-bg-primary: #1E1E1E;
+  --color-bg-primary: #1e1e1e;
   --color-bg-toggle: #a9a9a9;
-  --color-paragraph:#B9C1BE;
-  --color-button:#232929;
+  --color-paragraph: #b9c1be;
+  --color-button: #232929;
   --color-profile: #25786d;
+  --bg-color: #212727;
+  --calls-bg-color:#25786d;
+  --profile-bg-color:#1d6359;
 }
 body {
-  --color-white:#fff;
+  max-width: 450px;
+  width: 100%;
+  margin: auto;
+  --color-white: #fff;
   --color-text-secondary: #25786d;
+  --message-bg-background: #20a090;
   background: var(--color-bg-primary);
   color: var(--color-text-primary);
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   transition: 0.25s ease-in-out;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-p{
+p {
   color: var(--color-paragraph);
 }
 
@@ -38,7 +49,6 @@ p{
 }
 .no-scrollbar::-webkit-scrollbar {
   display: none;
-
 }
 .hs > li,
 .item {
@@ -46,13 +56,12 @@ p{
   display: flex;
   align-items: center;
 }
-@media (max-width:768px){
-  
+@media (max-width: 768px) {
   .hs {
     display: grid;
     grid-auto-flow: column;
-    gap:10px;
+    gap: 10px;
     overflow-x: scroll;
     scroll-snap-type: x proximity;
-  }    
+  }
 }

@@ -10,7 +10,9 @@ export default function ThemeToggle () {
 
   return (
     <ToggleButton type='button' onClick={() => setActiveTheme(inactiveTheme)}>
-      <ToggleThumb activeTheme={activeTheme}/>
+      <ToggleThumb 
+      activeTheme={activeTheme}
+      />
       <span>🌙</span>
       <span>☀️</span>
     </ToggleButton>
