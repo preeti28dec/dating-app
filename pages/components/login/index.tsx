@@ -9,7 +9,7 @@ export default function Login() {
   return (
     <Root>
       <div className='overhidden'></div>
-      <div className='text-center  text-white'>Chatbox</div>
+      <div className='text-center  text-white'>Dating App</div>
       <div className='Connect'>Connect friends easily & quickly</div>
       <p>
         Our chat app is the perfect way to stay connected with friends and
@@ -60,11 +60,11 @@ const Root = styled.div`
 
   .Connect {
     font-weight: 400;
-    font-size: 60px;
-    line-height: 78px;
+    font-size: 55px;
+    line-height: 70px;
     color: white;
     position: relative;
-    margin: 20px 0px;
+    margin: 15px 0px;
     /* z-index: ; */
   }
   p {

@@ -55,12 +55,12 @@ export default function SingUpPage() {
       <Header
         title={
           <>
-            <div className='flex py-2 items-center  gap-2 '>
+            <div className='flex  items-center  gap-2 '>
               <Link href='/login'>
                 <BsArrowLeft className='text-2xl' />
               </Link>
             </div>
-            <div className='font-bold text-xl pt-5 text-center'>
+            <div className='font-bold text-xl pt-2 text-center'>
               Sign up with Email
             </div>
             <p className='px-6 py-4 text-center text-[#797C7B]'>
@@ -82,7 +82,7 @@ export default function SingUpPage() {
               </div>
             </div>
 
-            <div className='flex gap-2 items-center my-4'>
+            <div className='flex gap-2 items-center mt-4'>
               <hr className='h-2 w-[50%] ' />
               <span className='text-[20px] pb-2 text-[#595d5c]'>OR</span>{" "}
               <hr className='h-2 w-[50%]' />
@@ -91,7 +91,7 @@ export default function SingUpPage() {
         }
       />
       <div className='mx-4 '>
-        <div className='mt-6'>
+        <div className='mt-2'>
           <label>Your name</label>
           <input
             className='input'
@@ -135,7 +135,7 @@ export default function SingUpPage() {
             )}
           </div>
         </div>
-        <div className='mt-6'>
+        <div className='mt-4'>
           <label>Confirm Password</label>
           <input
             className='input'

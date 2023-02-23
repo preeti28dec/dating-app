@@ -138,7 +138,9 @@ export default function Home() {
 
   return (
     <Container>
+      {/* <div className="absolute bottom-5"> */}
       <ThemeToggle />
+      {/* </div> */}
       <Header
         title={
           <>
@@ -175,11 +177,11 @@ export default function Home() {
               )}
             </div>
 
-            <div className='mt-12 mb-3'>
+            <div className='mt-4 mb-1'>
               <div className='hs full no-scrollbar sm:flex sm:justify-center sm:gap-4 '>
                 {SliderTab.map((i: any, ind: any) => {
                   return (
-                    <div className=' my-4' key={ind}>
+                    <div className=' my-2' key={ind}>
                       <div className={"flex flex-col items-center text-white"}>
                         <div className={`rounded-full ${i.color} p-1 border`}>
                           <img src={i.img} alt={i.name} />
@@ -267,11 +269,11 @@ export default function Home() {
 }
 const Container = styled.div`
   background-color: var(--color-profile);
-  height: 100vh;
+  /* height: 100vh; */
   .user_list {
     background-color: var(--color-bg-primary);
     width: 100%;
-    height: 61vh;
+    height: 66vh;
     overflow: hidden;
     overflow-y: scroll;
     padding: 10px 20px;
@@ -292,7 +294,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 16px;
+    padding: 6px 16px;
     font-size: 24px;
     line-height: 32px;
     border-top: 1px solid #242e2e;

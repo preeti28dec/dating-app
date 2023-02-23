@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import HomeLoding from "./components/homeLoding";
 import Login from "./components/login";
-import ThemeToggle from "./components/ThemeToggle";
 
 export default function Home() {
   const [count, setCount] = useState(0);
@@ -18,7 +16,7 @@ export default function Home() {
       <Login />
       {/* <HomeLoding /> */}
       {/* {countInTimeout === 3 ? <Login /> : <HomeLoding />} */}
-      <ThemeToggle />
+      {/* <ThemeToggle /> */}
     </Container>
   );
 }
