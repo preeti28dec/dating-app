@@ -24,7 +24,7 @@ export default function setting() {
                 <BsArrowLeft className='p-[2px] text-white text-2xl' />
               </Link>
 
-              <div className='text-white'>Setting</div>
+              <div className='text-white text-center text-xl'>Setting</div>
 
               <div></div>
             </div>

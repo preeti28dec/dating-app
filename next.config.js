@@ -14,4 +14,4 @@ module.exports = withPWA({
   reactStrictMode: true,
   swcMinify: true,
 })
-// module.exports = nextConfig
+// module.exports = nextConfignpm run 

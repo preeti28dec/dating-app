@@ -229,6 +229,7 @@ const Root = styled.div`
     position: relative;
     background: #f3f6f6;
     width: 100%;
+    color: black;
 
     border-radius: 6px;
   }

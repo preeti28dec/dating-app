@@ -165,7 +165,7 @@ export default function Home() {
                       onClick={() => setOpen((s) => !s)}
                     />
                   </div>
-                  <div className='text-white'>Home</div>
+                  <div className='text-white text-xl'>Home</div>
                   <Link href='/profile'>
                     <div>
                       <img src='/assest/user1.png' alt='' />

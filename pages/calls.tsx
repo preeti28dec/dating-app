@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { BsChatDots, BsSearch } from "react-icons/bs";
 import Header from "./components/header";
 import ThemeToggle from "./components/ThemeToggle";
@@ -133,7 +133,7 @@ export default function Calls() {
         title={
           <>
             <div className='py-6 flex justify-between items-center'>
-            {open ? (
+              {open ? (
                 <div className='input_section'>
                   <BsSearch className='text-lg absolute left-2 top-2' />
                   <input
@@ -147,16 +147,21 @@ export default function Calls() {
                     onClick={() => setOpen((s) => !s)}
                   />
                 </div>
-              ) : (<>
-              <div className='border rounded-full text-2xl p-1'>
-                <BsSearch className='p-[2px] text-white'  onClick={() => setOpen((s) => !s)}/>
-              </div>
-              <div className='text-white'>Calls</div>
+              ) : (
+                <>
+                  <div className='border rounded-full text-2xl p-1'>
+                    <BsSearch
+                      className='p-[2px] text-white'
+                      onClick={() => setOpen((s) => !s)}
+                    />
+                  </div>
+                  <div className='text-white text-xl'>Calls</div>
 
-              <div className='border rounded-full text-2xl p-1'>
-                <HiOutlinePhoneMissedCall className='p-[2px] text-white' />
-              </div>
-              </>)}
+                  <div className='border rounded-full text-2xl p-1'>
+                    <HiOutlinePhoneMissedCall className='p-[2px] text-white' />
+                  </div>
+                </>
+              )}
             </div>
           </>
         }
@@ -164,9 +169,10 @@ export default function Calls() {
 
       <div className='user_list'>
         <div className='text_empty'></div>
-        <div className="font-semibold">Recent</div>
+        <div className='font-semibold'>Recent</div>
         <div>
-          {userList.filter((i) => {
+          {userList
+            .filter((i) => {
               if (search === "") {
                 return i;
               } else if (
@@ -174,42 +180,43 @@ export default function Calls() {
               ) {
                 return i;
               }
-            }).map((i: any, ind: any) => {
-            return (
-              <div key={ind} className='flex justify-between items-center'>
-                <div className='flex  items-center gap-4 my-4'>
-                  <div>
-                    <img src={i.img} alt={i.name} />
-                  </div>
-                  <div>
-                    <div className='font-semibold'> {i.name}</div>
-                    <div className='flex items-center gap-2'>
-                      <div
-                        className={
-                          i.callType == "Incoming"
-                            ? "text-[#139c6f]"
-                            : i.callType == "MissedCall"
-                            ? "text-[#ea3736]"
-                            : i.callType == "Outgoing"
-                            ? "text-[#5f40dc]"
-                            : ""
-                        }
-                      >
-                        {i.icon}{" "}
+            })
+            .map((i: any, ind: any) => {
+              return (
+                <div key={ind} className='flex justify-between items-center'>
+                  <div className='flex  items-center gap-4 my-4'>
+                    <div>
+                      <img src={i.img} alt={i.name} />
+                    </div>
+                    <div>
+                      <div className='font-semibold'> {i.name}</div>
+                      <div className='flex items-center gap-2'>
+                        <div
+                          className={
+                            i.callType == "Incoming"
+                              ? "text-[#139c6f]"
+                              : i.callType == "MissedCall"
+                              ? "text-[#ea3736]"
+                              : i.callType == "Outgoing"
+                              ? "text-[#5f40dc]"
+                              : ""
+                          }
+                        >
+                          {i.icon}{" "}
+                        </div>
+                        <div className='text-sm text-[#989e9c]'>{i.time}</div>
                       </div>
-                      <div className='text-sm text-[#989e9c]'>{i.time}</div>
                     </div>
                   </div>
+                  <div className='flex gap-4 items-center text-2xl text-[#989e9c]'>
+                    <TbPhoneCall />
+                    <Link href='/video-call'>
+                      <HiOutlineVideoCamera />
+                    </Link>
+                  </div>
                 </div>
-                <div className='flex gap-4 items-center text-2xl text-[#989e9c]'>
-                  <TbPhoneCall />
-                  <Link href='/video-call'>
-                  <HiOutlineVideoCamera />
-                  </Link>
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
       </div>
       <div className='footer'>
@@ -220,21 +227,23 @@ export default function Calls() {
           </div>
         </Link>
         <Link href='/calls'>
-          <div className="text-[#25786d]">
+          <div className='text-[#25786d]'>
             <FiPhoneCall className='mx-auto' />
             <div className='text-lg'>Calls</div>
           </div>
         </Link>
         <Link href='/contact'>
-        <div>
-          <FaRegUserCircle className='mx-auto' />
-          <div className='text-lg'>Contacts</div>
-        </div>
+          <div>
+            <FaRegUserCircle className='mx-auto' />
+            <div className='text-lg'>Contacts</div>
+          </div>
         </Link>
-        <div>
-          <IoSettingsOutline className='mx-auto' />
-          <div className='text-lg'>Setting</div>
-        </div>
+        <Link href='/setting'>
+          <div>
+            <IoSettingsOutline className='mx-auto' />
+            <div className='text-lg'>Setting</div>
+          </div>
+        </Link>
       </div>
     </Root>
   );
@@ -250,7 +259,6 @@ const Root = styled.div`
     overflow-y: scroll;
     padding: 10px 20px;
     border-radius: 30px 30px 0px 0px;
-  
   }
   .user_list::-webkit-scrollbar {
     display: none;
@@ -276,7 +284,7 @@ const Root = styled.div`
     position: relative;
     background: #f3f6f6;
     width: 100%;
-
+    color: black;
     border-radius: 6px;
   }
   input {
