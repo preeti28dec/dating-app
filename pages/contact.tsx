@@ -75,7 +75,7 @@ export default function Contact() {
   // const oderUserList = userList.sort((a, b) =>
   //   a.name.localeCompare(b.name, "es", { sensitivity: "base" })
   // );
-  let data = userList.reduce((r, e) => {
+  let data = userList.reduce((r:any, e:any) => {
     let alphabet = e.name[0];
     if (!r[alphabet]) r[alphabet] = { alphabet, record: [e] };
     else r[alphabet].record.push(e);
@@ -129,7 +129,7 @@ export default function Contact() {
         <div className='font-semibold'>My Contact</div>
         <div>
           {result
-            .filter((i) => {
+            .filter((i:any) => {
               if (search === "") {
                 return i;
               } else if (

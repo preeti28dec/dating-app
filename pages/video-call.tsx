@@ -32,7 +32,7 @@ export default function VideoCall() {
         </div>
         <div className='absolute top-1/3 left-4 '>
           <div className='w-[44px] h-[162px] relative  rounded-full bg-[#4c525b]  text-white'>
-            <input type='range' orient='vertical' className='mx-4 mt-3  ' />
+            <input type='range' className='  ' />
             <HiOutlineSpeakerWave className='absolute bottom-2 text-xl  left-[10px]' />
           </div>
         </div>
@@ -63,11 +63,11 @@ export default function VideoCall() {
 }
 
 const Root = styled.div`
-  input[type="range"][orient="vertical"] {
-    writing-mode: bt-lr;
-    -webkit-appearance: slider-vertical;
-    width: 8px;
-    height: 75%;
-    padding: 0 5px;
+  input[type="range"] {
+    position: absolute;
+    left: -42px;
+    top: 13%;
+    height: 60%; 
+    transform: rotate(270deg);
   }
 `;

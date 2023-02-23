@@ -20,12 +20,12 @@ import { TfiLocationPin } from "react-icons/tfi";
 import ImageUploading from "react-images-uploading";
 
 export default function Messages() {
-  const [messageList, setMessageList] = useState([]);
+  const [messageList, setMessageList] = useState<any>([]);
   const [message, setMessage] = useState("");
   const [images, setImages] = useState<any>([]);
   const [open, setOpen] = useState(false);
   const [showAllMessages, setShowAllMessages] = useState([]);
-  const scollToRef = useRef(null);
+  const scollToRef = useRef<null | HTMLDivElement>(null);
   const maxNumber = 69;
   const onChange = (imageList: any) => {
     setImages(imageList);
@@ -33,7 +33,7 @@ export default function Messages() {
 
   function handleClike(e: any) {
     e.preventDefault();
-    setMessageList((s: any) => [...s, message]);
+    setMessageList((s:any) => [...s, message]);
     setMessage("");
   }
   useEffect(() => {
@@ -91,7 +91,7 @@ export default function Messages() {
             </span>
           </div>
           <div>
-            {messageList.map((i, ind) => {
+            {messageList.map((i:any, ind:any) => {
               return (
                 <div key={ind}>
                   <div className='text-end p-4 mt-4'>

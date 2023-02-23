@@ -10,7 +10,7 @@ export default function ThemeToggle() {
 
   return (
     <ToggleButton type='button' onClick={() => setActiveTheme(inactiveTheme)}>
-      <ToggleThumb activeTheme={activeTheme} />
+      <ToggleThumb theme={activeTheme} />
       <span>🌙</span>
       <span>☀️</span>
     </ToggleButton>
@@ -45,8 +45,7 @@ const ToggleThumb = styled.span`
   border-radius: 50%;
   background: white;
   transition: transform 0.25s ease-in-out;
-  transform: ${(p) =>
-    p.activeTheme === "dark"
+  transform: ${(p:any) => p.theme === "dark"
       ? "translate3d(calc(var(--toggle-width) - var(--toggle-height)), 0, 0)"
       : "none"};
 `;
