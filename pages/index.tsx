@@ -15,7 +15,9 @@ export default function Home() {
   }, [count]);
   return (
     <Container>
-      {countInTimeout === 3 ? <Login /> : <HomeLoding />}
+      <Login />
+      {/* <HomeLoding /> */}
+      {/* {countInTimeout === 3 ? <Login /> : <HomeLoding />} */}
       <ThemeToggle />
     </Container>
   );

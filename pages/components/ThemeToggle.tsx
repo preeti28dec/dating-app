@@ -1,30 +1,28 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { ThemeButton } from "../context";
 
-export default function ThemeToggle () {
-  const [activeTheme, setActiveTheme] = useState<string>("light");
-  const inactiveTheme = activeTheme === "light" ? "dark" : "light";
+export default function ThemeToggle() {
+  const { activeTheme, setActiveTheme, inactiveTheme }: any = ThemeButton();
   useEffect(() => {
     document.body.dataset.theme = activeTheme;
   }, [activeTheme]);
 
   return (
     <ToggleButton type='button' onClick={() => setActiveTheme(inactiveTheme)}>
-      <ToggleThumb 
-      activeTheme={activeTheme}
-      />
+      <ToggleThumb activeTheme={activeTheme} />
       <span>🌙</span>
       <span>☀️</span>
     </ToggleButton>
   );
-};
+}
 
 const ToggleButton = styled.button`
   --toggle-width: 80px;
   --toggle-height: 38px;
   --toggle-padding: 4px;
   position: absolute;
-  bottom:10px;
+  bottom: 10px;
   right: 10px;
   font-size: 1.5rem;
   line-height: 1;

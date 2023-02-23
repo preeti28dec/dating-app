@@ -148,15 +148,17 @@ export default function SingUpPage() {
         </div>
       </div>
       <Link href='/home'>
-      <div className={login ? "login-true" : "login-false"}>
-        <button
-          className={
-            login ? "text-white font-semibold" : "font-semibold text-[#797C7B]"
-          }
-        >
-          Create an account
-        </button>
-      </div>
+        <div className={login ? "login-true" : "login-false"}>
+          <button
+            className={
+              login
+                ? "text-white font-semibold"
+                : "font-semibold text-[#797C7B]"
+            }
+          >
+            Create an account
+          </button>
+        </div>
       </Link>
       <div className='forget'>Forgot password?</div>
     </Container>
@@ -166,7 +168,7 @@ const Container = styled.div`
   /* max-width: 450px;
   width: 100%;
   margin: auto; */
-
+  height: 100vh;
   .input {
     border: 1px solid gray;
     border-top: none;

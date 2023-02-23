@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import Header from "./components/header";
 import ThemeToggle from "./components/ThemeToggle";
@@ -17,17 +17,32 @@ import { MdContentCopy } from "react-icons/md";
 import { GiNetworkBars } from "react-icons/gi";
 import { FaRegUserCircle } from "react-icons/fa";
 import { TfiLocationPin } from "react-icons/tfi";
+import ImageUploading from "react-images-uploading";
 
 export default function Messages() {
-  const [message, setMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
+  const [message, setMessage] = useState("");
+  const [images, setImages] = useState<any>([]);
   const [open, setOpen] = useState(false);
+  const [showAllMessages, setShowAllMessages] = useState([]);
+  const scollToRef = useRef(null);
+  const maxNumber = 69;
+  const onChange = (imageList: any) => {
+    setImages(imageList);
+  };
 
   function handleClike(e: any) {
     e.preventDefault();
     setMessageList((s: any) => [...s, message]);
     setMessage("");
   }
+  useEffect(() => {
+    scollToRef?.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "start",
+    });
+  }, [messageList]);
   return (
     <>
       <ThemeToggle />
@@ -40,13 +55,15 @@ export default function Messages() {
                   <Link href='/home'>
                     <BsArrowLeft className='text-2xl ' />
                   </Link>
-                  <div>
-                    <img
-                      src='/assest/user1.png'
-                      alt=''
-                      className='w-10 object-cover'
-                    />
-                  </div>
+                  <Link href='/profile'>
+                    <div>
+                      <img
+                        src='/assest/user1.png'
+                        alt=''
+                        className='w-10 object-cover'
+                      />
+                    </div>
+                  </Link>
                   <div>
                     <div className='font-semibold'>Jhon Abraham</div>
                     <div className='text-[12px]'>Active now</div>
@@ -57,9 +74,11 @@ export default function Messages() {
                   <div>
                     <IoCallOutline />
                   </div>
-                  <div>
-                    <IoVideocamOutline />
-                  </div>
+                  <Link href='/video-call'>
+                    <div>
+                      <IoVideocamOutline />
+                    </div>
+                  </Link>
                 </div>
               </div>
             </>
@@ -71,28 +90,59 @@ export default function Messages() {
               Today
             </span>
           </div>
-          {messageList.map((i, ind) => {
-            return (
-              <div key={ind}>
-                <div className='text-end p-4 mt-4'>
-                  <span className='send_message'>{i}</span>
-                  <div className='text-[12px] my-2 text-[#797c7b]'>
-                    09:25 AM
+          <div>
+            {messageList.map((i, ind) => {
+              return (
+                <div key={ind}>
+                  <div className='text-end p-4 mt-4'>
+                    <span className='send_message'>{i}</span>
+                    <div className='text-[12px] my-2 text-[#797c7b]'>
+                      09:25 AM
+                    </div>
                   </div>
-                </div>
-                <div className='flex gap-4 '>
-                  <img
-                    src='/assest/user1.png'
-                    alt=''
-                    className='w-12 h-12 mt-2 object-cover rounded-full'
-                  />
-                  <div>
-                    <div className='font-semibold my-2'>Jhon Abraham</div>
+                  <div className='flex gap-4 '>
+                    <img
+                      src='/assest/user1.png'
+                      alt=''
+                      className='w-12 h-12 mt-2 object-cover rounded-full'
+                    />
                     <div>
+                      <div className='font-semibold my-2'>Jhon Abraham</div>
+                      <div>
+                        <div className=''>
+                          <span className='coming_message'>
+                            Have a great working week!!
+                          </span>
+                          <div className='text-[12px] my-2 text-right text-[#797c7b]'>
+                            09:25 AM
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='text-end p-4 mt-4'>
+                    <span className='send_message'>You did your job well!</span>
+                    <div className='text-[12px] my-2 text-[#797c7b]'>
+                      09:25 AM
+                    </div>
+                  </div>
+                  <div className='flex gap-4'>
+                    <img
+                      src='/assest/user1.png'
+                      alt=''
+                      className='w-12 h-12 mt-2 object-cover rounded-full'
+                    />
+                    <div>
+                      <div className='font-semibold my-2'>Jhon Abraham</div>
                       <div className=''>
                         <span className='coming_message'>
                           Have a great working week!!
                         </span>
+                        <div className='my-6'>
+                          <span className='coming_message'>
+                            Hope you like it!
+                          </span>
+                        </div>
                         <div className='text-[12px] my-2 text-right text-[#797c7b]'>
                           09:25 AM
                         </div>
@@ -100,38 +150,21 @@ export default function Messages() {
                     </div>
                   </div>
                 </div>
-                <div className='text-end p-4 mt-4'>
-                  <span className='send_message'>You did your job well!</span>
-                  <div className='text-[12px] my-2 text-[#797c7b]'>
-                    09:25 AM
-                  </div>
-                </div>
-                <div className='flex gap-4'>
+              );
+            })}
+            <div className='m-4 '>
+              {images.map((image: any, index: any) => (
+                <div key={index} className='image-item my-4 flex justify-end'>
                   <img
-                    src='/assest/user1.png'
+                    src={image.data_url}
                     alt=''
-                    className='w-12 h-12 mt-2 object-cover rounded-full'
+                    className='w-64 h-36 object-cover rounded-lg '
                   />
-                  <div>
-                    <div className='font-semibold my-2'>Jhon Abraham</div>
-                    <div className=''>
-                      <span className='coming_message'>
-                        Have a great working week!!
-                      </span>
-                      <div className='my-6'>
-                        <span className='coming_message'>
-                          Hope you like it!
-                        </span>
-                      </div>
-                      <div className='text-[12px] my-2 text-right text-[#797c7b]'>
-                        09:25 AM
-                      </div>
-                    </div>
-                  </div>
                 </div>
-              </div>
-            );
-          })}
+              ))}
+            </div>
+            <div ref={scollToRef} />
+          </div>
         </div>
         <div className='footer'>
           <ImAttachment onClick={() => setOpen((s) => !s)} />
@@ -156,7 +189,22 @@ export default function Messages() {
             </div>
           ) : (
             <div className='flex items-center gap-2 text-2xl'>
-              <FiCamera />
+              <ImageUploading
+                multiple
+                value={images}
+                onChange={onChange}
+                maxNumber={maxNumber}
+                dataURLKey='data_url'
+                acceptType={["jpg"]}
+              >
+                {({ onImageUpload, dragProps }) => (
+                  <div className='upload__image-wrapper'>
+                    <div onClick={onImageUpload} {...dragProps}>
+                      <FiCamera />
+                    </div>
+                  </div>
+                )}
+              </ImageUploading>
               <AiOutlineAudio />
             </div>
           )}
@@ -246,9 +294,6 @@ export default function Messages() {
   );
 }
 const Container = styled.div`
-  /* max-width: 450px;
-  width: 100%; */
-  /* margin: auto; */
   height: 100vh;
   position: relative;
   .user_list {

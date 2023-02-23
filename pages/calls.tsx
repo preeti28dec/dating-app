@@ -203,7 +203,9 @@ export default function Calls() {
                 </div>
                 <div className='flex gap-4 items-center text-2xl text-[#989e9c]'>
                   <TbPhoneCall />
+                  <Link href='/video-call'>
                   <HiOutlineVideoCamera />
+                  </Link>
                 </div>
               </div>
             );

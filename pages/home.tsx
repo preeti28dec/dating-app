@@ -47,22 +47,22 @@ const SliderTab = [
     desc: "Have a good day 🌸",
     color: "border-[#fbdc94]",
   },
-  {
-    id: 7,
-    img: "/assest/user4.png",
-    time: "2 min ago",
-    name: "John Ahraham",
-    desc: "Hey! Can you join the meeting?",
-    color: "border-[#98a1f1]",
-  },
-  {
-    id: 8,
-    img: "/assest/user5.png",
-    time: "2 min ago",
-    name: "Sabila Sayma",
-    desc: "How are you today?",
-    color: "border-[#fbdc94]",
-  },
+  // {
+  //   id: 7,
+  //   img: "/assest/user4.png",
+  //   time: "2 min ago",
+  //   name: "John Ahraham",
+  //   desc: "Hey! Can you join the meeting?",
+  //   color: "border-[#98a1f1]",
+  // },
+  // {
+  //   id: 8,
+  //   img: "/assest/user5.png",
+  //   time: "2 min ago",
+  //   name: "Sabila Sayma",
+  //   desc: "How are you today?",
+  //   color: "border-[#fbdc94]",
+  // },
 ];
 const userList = [
   {
@@ -176,7 +176,7 @@ export default function Home() {
             </div>
 
             <div className='mt-12 mb-3'>
-              <div className='hs full no-scrollbar sm:flex sm:justify-center sm:gap-4 overflow-hidden overflow-x-scroll'>
+              <div className='hs full no-scrollbar sm:flex sm:justify-center sm:gap-4 '>
                 {SliderTab.map((i: any, ind: any) => {
                   return (
                     <div className=' my-4' key={ind}>

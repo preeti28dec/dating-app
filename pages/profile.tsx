@@ -29,9 +29,11 @@ export default function Profile() {
                     <BsChatDots className='text-xl ' />
                   </div>
                 </Link>
+                <Link href='/video-call'>
                 <div className='p-3 rounded-full text '>
                   <FiVideo className='text-xl ' />
                 </div>
+                </Link>
                 <Link href='/calls'>
                   <div className='p-3 rounded-full text '>
                     <IoCallOutline className='text-xl ' />

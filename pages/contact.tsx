@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { BsChatDots, BsSearch } from "react-icons/bs";
 import Header from "./components/header";
 import ThemeToggle from "./components/ThemeToggle";
-import { HiOutlineVideoCamera } from "react-icons/hi";
 import styled from "styled-components";
 import Link from "next/link";
 import { FiPhoneCall, FiUserPlus } from "react-icons/fi";
@@ -73,6 +72,17 @@ const userList = [
 export default function Contact() {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
+  // const oderUserList = userList.sort((a, b) =>
+  //   a.name.localeCompare(b.name, "es", { sensitivity: "base" })
+  // );
+  let data = userList.reduce((r, e) => {
+    let alphabet = e.name[0];
+    if (!r[alphabet]) r[alphabet] = { alphabet, record: [e] };
+    else r[alphabet].record.push(e);
+    return r;
+  }, {});
+  let result = Object.values(data);
+
   return (
     <Root>
       <ThemeToggle />
@@ -118,7 +128,7 @@ export default function Contact() {
         <div className='text_empty'></div>
         <div className='font-semibold'>My Contact</div>
         <div>
-          {userList
+          {result
             .filter((i) => {
               if (search === "") {
                 return i;
@@ -130,18 +140,27 @@ export default function Contact() {
             })
             .map((i: any, ind: any) => {
               return (
-                <div key={ind} className='flex justify-between items-center'>
-                  <div className='flex  items-center gap-4 my-4'>
-                    <div>
-                      <img src={i.img} alt={i.name} />
-                    </div>
-                    <div>
-                      <div className='font-semibold'> {i.name}</div>
-                      <div className='flex items-center gap-2'>
-                        <div className='text-sm text-[#989e9c]'>{i.desc}</div>
+                <div key={ind} className=''>
+                  <div className='font-bold my-4'>{i.alphabet}</div>
+                  {i.record.map((i: any, ind: any) => {
+                    return (
+                      <div key={ind}>
+                        <div className='flex  items-center gap-4 my-4'>
+                          <div>
+                            <img src={i.img} alt={i.name} />
+                          </div>
+                          <div>
+                            <div className='font-semibold'> {i.name}</div>
+                            <div className='flex items-center gap-2'>
+                              <div className='text-sm text-[#989e9c]'>
+                                {i.desc}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
+                    );
+                  })}
                 </div>
               );
             })}
