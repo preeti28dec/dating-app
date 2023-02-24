@@ -82,7 +82,7 @@ export default function SingUpPage() {
               </div>
             </div>
 
-            <div className='flex gap-2 items-center mt-4'>
+            <div className='flex gap-2 items-center mt-2'>
               <hr className='h-2 w-[50%] ' />
               <span className='text-[20px] pb-2 text-[#595d5c]'>OR</span>{" "}
               <hr className='h-2 w-[50%]' />
@@ -91,7 +91,7 @@ export default function SingUpPage() {
         }
       />
       <div className='mx-4 '>
-        <div className='mt-2'>
+        <div className=''>
           <label>Your name</label>
           <input
             className='input'
@@ -165,7 +165,7 @@ export default function SingUpPage() {
   );
 }
 const Container = styled.div`
-  height: 100%;
+  height: 100vh;
   .input {
     border: 1px solid gray;
     border-top: none;
