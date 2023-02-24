@@ -11,6 +11,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { TbPhoneCall } from "react-icons/tb";
 import { VscCallIncoming, VscCallOutgoing } from "react-icons/vsc";
 import { AiOutlineClose } from "react-icons/ai";
+import Footer from "./components/footer";
 const userList = [
   {
     id: 1,
@@ -128,7 +129,6 @@ export default function Calls() {
   const [search, setSearch] = useState("");
   return (
     <Root>
-      <ThemeToggle />
       <Header
         title={
           <>
@@ -170,7 +170,7 @@ export default function Calls() {
       <div className='user_list'>
         <div className='text_empty'></div>
         <div className='font-semibold'>Recent</div>
-        <div>
+        <div className="pb-8">
           {userList
             .filter((i) => {
               if (search === "") {
@@ -219,32 +219,10 @@ export default function Calls() {
             })}
         </div>
       </div>
-      <div className='footer'>
-        <Link href='/message'>
-          <div className=''>
-            <BsChatDots className='mx-auto' />
-            <div className='text-lg'>Message</div>
-          </div>
-        </Link>
-        <Link href='/calls'>
-          <div className='text-[#25786d]'>
-            <FiPhoneCall className='mx-auto' />
-            <div className='text-lg'>Calls</div>
-          </div>
-        </Link>
-        <Link href='/contact'>
-          <div>
-            <FaRegUserCircle className='mx-auto' />
-            <div className='text-lg'>Contacts</div>
-          </div>
-        </Link>
-        <Link href='/setting'>
-          <div>
-            <IoSettingsOutline className='mx-auto' />
-            <div className='text-lg'>Setting</div>
-          </div>
-        </Link>
-      </div>
+      <div className='absolute right-2 bottom-16 z-10'>
+          <ThemeToggle />
+        </div>
+      <Footer />
     </Root>
   );
 }
@@ -270,16 +248,7 @@ const Root = styled.div`
     border-radius: 100px;
     background-color: #e6e6e6;
   }
-  .footer {
-    background-color: var(--color-bg-primary);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 16px;
-    font-size: 24px;
-    line-height: 32px;
-    border-top: 1px solid #242e2e;
-  }
+
   .input_section {
     position: relative;
     background: #f3f6f6;

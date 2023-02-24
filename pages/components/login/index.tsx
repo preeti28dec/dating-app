@@ -53,10 +53,13 @@ export default function Login() {
 
 const Root = styled.div`
   background-color: black;
-  height: 100vh;
+  height: 100%;
   left: 24px;
   top: 124px;
-  padding: 40px;
+  padding: 4% 40px;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
 
   .Connect {
     font-weight: 400;

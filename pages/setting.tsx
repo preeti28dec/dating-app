@@ -11,11 +11,11 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { HiOutlineKey } from "react-icons/hi";
 import { MdOutlineQrCodeScanner } from "react-icons/md";
+import Footer from "./components/footer";
 
 export default function setting() {
   return (
     <Root>
-      <ThemeToggle />
       <Header
         title={
           <>
@@ -47,7 +47,7 @@ export default function setting() {
           </div>
         </Link>
         <hr />
-        <div>
+        <div className='pb-4'>
           <div className='flex px-6 my-8 items-center gap-4'>
             <div className='p-3 rounded-full text '>
               <HiOutlineKey className='text-2xl text-[#797c7b]' />
@@ -111,28 +111,10 @@ export default function setting() {
           </div>
         </div>
       </div>
-      <div className='footer'>
-        <Link href='/message'>
-          <div className=''>
-            <BsChatDots className='mx-auto' />
-            <div className='text-lg'>Message</div>
-          </div>
-        </Link>
-        <Link href='/calls'>
-          <div className=''>
-            <FiPhoneCall className='mx-auto' />
-            <div className='text-lg'>Calls</div>
-          </div>
-        </Link>
-        <div>
-          <FaRegUserCircle className='mx-auto' />
-          <div className='text-lg'>Contacts</div>
-        </div>
-        <div className='text-[#25786d]'>
-          <IoSettingsOutline className='mx-auto' />
-          <div className='text-lg'>Setting</div>
-        </div>
+      <div className='absolute right-2 bottom-16 z-10'>
+        <ThemeToggle />
       </div>
+      <Footer />
     </Root>
   );
 }
@@ -162,15 +144,5 @@ const Root = styled.div`
     height: 4px;
     border-radius: 100px;
     background-color: #e6e6e6;
-  }
-  .footer {
-    background-color: var(--color-bg-primary);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 13px 16px;
-    font-size: 24px;
-    line-height: 32px;
-    border-top: 1px solid #242e2e;
   }
 `;

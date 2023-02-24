@@ -33,7 +33,7 @@ export default function Messages() {
 
   function handleClike(e: any) {
     e.preventDefault();
-    setMessageList((s:any) => [...s, message]);
+    setMessageList((s: any) => [...s, message]);
     setMessage("");
   }
   useEffect(() => {
@@ -43,106 +43,76 @@ export default function Messages() {
       inline: "start",
     });
   }, [messageList]);
-  return (
-    <>
-      <ThemeToggle />
-      <Container>
-        <Header
-          title={
-            <>
-              <div className='flex justify-between items-center'>
-                <div className='flex items-center gap-2'>
-                  <Link href='/home'>
-                    <BsArrowLeft className='text-2xl ' />
-                  </Link>
-                  <Link href='/profile'>
-                    <div>
-                      <img
-                        src='/assest/user1.png'
-                        alt=''
-                        className='w-10 object-cover'
-                      />
-                    </div>
-                  </Link>
-                  <div>
-                    <div className='font-semibold'>Jhon Abraham</div>
-                    <div className='text-[12px]'>Active now</div>
-                  </div>
-                </div>
+  console.log(open);
 
-                <div className=' text-2xl flex items-center gap-4'>
+  return (
+    <Container>
+      <Header
+        title={
+          <>
+            <div className='flex justify-between items-center'>
+              <div className='flex items-center gap-2'>
+                <Link href='/home'>
+                  <BsArrowLeft className='text-2xl ' />
+                </Link>
+                <Link href='/profile'>
                   <div>
-                    <IoCallOutline />
+                    <img
+                      src='/assest/user1.png'
+                      alt=''
+                      className='w-10 object-cover'
+                    />
                   </div>
-                  <Link href='/video-call'>
-                    <div>
-                      <IoVideocamOutline />
-                    </div>
-                  </Link>
+                </Link>
+                <div>
+                  <div className='font-semibold'>Jhon Abraham</div>
+                  <div className='text-[12px]'>Active now</div>
                 </div>
               </div>
-            </>
-          }
-        />
-        <div className='user_list'>
-          <div className='text-center '>
-            <span className='font-semibold px-4 py-1 text rounded-full  text-sm'>
-              Today
-            </span>
-          </div>
-          <div>
-            {messageList.map((i:any, ind:any) => {
-              return (
-                <div key={ind}>
-                  <div className='text-end p-4 mt-4'>
-                    <span className='send_message'>{i}</span>
-                    <div className='text-[12px] my-2 text-[#797c7b]'>
-                      09:25 AM
-                    </div>
+
+              <div className=' text-2xl flex items-center gap-4'>
+                <div>
+                  <IoCallOutline />
+                </div>
+                <Link href='/video-call'>
+                  <div>
+                    <IoVideocamOutline />
                   </div>
-                  <div className='flex gap-4 '>
-                    <img
-                      src='/assest/user1.png'
-                      alt=''
-                      className='w-12 h-12 mt-2 object-cover rounded-full'
-                    />
+                </Link>
+              </div>
+            </div>
+          </>
+        }
+      />
+      <div className='user_list'>
+        <div className='text-center '>
+          <span className='font-semibold px-4 py-1 text rounded-full  text-sm'>
+            Today
+          </span>
+        </div>
+        <div>
+          {messageList.map((i: any, ind: any) => {
+            return (
+              <div key={ind}>
+                <div className='text-end p-4 mt-4'>
+                  <span className='send_message'>{i}</span>
+                  <div className='text-[12px] my-2 text-[#797c7b]'>
+                    09:25 AM
+                  </div>
+                </div>
+                <div className='flex gap-4 '>
+                  <img
+                    src='/assest/user1.png'
+                    alt=''
+                    className='w-12 h-12 mt-2 object-cover rounded-full'
+                  />
+                  <div>
+                    <div className='font-semibold my-2'>Jhon Abraham</div>
                     <div>
-                      <div className='font-semibold my-2'>Jhon Abraham</div>
-                      <div>
-                        <div className=''>
-                          <span className='coming_message'>
-                            Have a great working week!!
-                          </span>
-                          <div className='text-[12px] my-2 text-right text-[#797c7b]'>
-                            09:25 AM
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className='text-end p-4 mt-4'>
-                    <span className='send_message'>You did your job well!</span>
-                    <div className='text-[12px] my-2 text-[#797c7b]'>
-                      09:25 AM
-                    </div>
-                  </div>
-                  <div className='flex gap-4'>
-                    <img
-                      src='/assest/user1.png'
-                      alt=''
-                      className='w-12 h-12 mt-2 object-cover rounded-full'
-                    />
-                    <div>
-                      <div className='font-semibold my-2'>Jhon Abraham</div>
                       <div className=''>
                         <span className='coming_message'>
                           Have a great working week!!
                         </span>
-                        <div className='my-6'>
-                          <span className='coming_message'>
-                            Hope you like it!
-                          </span>
-                        </div>
                         <div className='text-[12px] my-2 text-right text-[#797c7b]'>
                           09:25 AM
                         </div>
@@ -150,147 +120,191 @@ export default function Messages() {
                     </div>
                   </div>
                 </div>
-              );
-            })}
-            <div className='m-4 '>
-              {images.map((image: any, index: any) => (
-                <div key={index} className='image-item my-4 flex justify-end'>
-                  <img
-                    src={image.data_url}
-                    alt=''
-                    className='w-64 h-36 object-cover rounded-lg '
-                  />
+                <div className='text-end p-4 mt-4'>
+                  <span className='send_message'>You did your job well!</span>
+                  <div className='text-[12px] my-2 text-[#797c7b]'>
+                    09:25 AM
+                  </div>
                 </div>
-              ))}
-            </div>
-            <div ref={scollToRef} />
-          </div>
-        </div>
-        <div className='footer'>
-          <ImAttachment onClick={() => setOpen((s) => !s)} />
-          <form
-            className='input_section '
-            onSubmit={(e: any) => handleClike(e)}
-          >
-            <input
-              placeholder='Write your message'
-              className='w-full '
-              value={message}
-              type='text'
-              onChange={(e) => {
-                setMessage(e.target.value);
-              }}
-            />
-            <MdContentCopy className='absolute top-3 right-1 text-[#797C7B]' />
-          </form>
-          {message ? (
-            <div className='send_icon' onClick={(e) => handleClike(e)}>
-              <IoSend className='text-[20px] pl-1' />
-            </div>
-          ) : (
-            <div className='flex items-center gap-2 text-2xl'>
-              <ImageUploading
-                multiple
-                value={images}
-                onChange={onChange}
-                maxNumber={maxNumber}
-                dataURLKey='data_url'
-                acceptType={["jpg"]}
-              >
-                {({ onImageUpload, dragProps }) => (
-                  <div className='upload__image-wrapper'>
-                    <div onClick={onImageUpload} {...dragProps}>
-                      <FiCamera />
+                <div className='flex gap-4'>
+                  <img
+                    src='/assest/user1.png'
+                    alt=''
+                    className='w-12 h-12 mt-2 object-cover rounded-full'
+                  />
+                  <div>
+                    <div className='font-semibold my-2'>Jhon Abraham</div>
+                    <div className=''>
+                      <span className='coming_message'>
+                        Have a great working week!!
+                      </span>
+                      <div className='my-6'>
+                        <span className='coming_message'>
+                          Hope you like it!
+                        </span>
+                      </div>
+                      <div className='text-[12px] my-2 text-right text-[#797c7b]'>
+                        09:25 AM
+                      </div>
                     </div>
                   </div>
-                )}
-              </ImageUploading>
-              <AiOutlineAudio />
-            </div>
-          )}
+                </div>
+              </div>
+            );
+          })}
+          <div className='m-4 '>
+            {images.map((image: any, index: any) => (
+              <div key={index} className='image-item my-4 flex justify-end'>
+                <img
+                  src={image.data_url}
+                  alt=''
+                  className='w-64 h-36 object-cover rounded-lg '
+                />
+              </div>
+            ))}
+          </div>
+          <div ref={scollToRef} />
         </div>
-        {open ? (
-          <ModalBox onClick={() => setOpen((s) => !s)}>
-            <Popup>
-              <div className='flex  justify-between mx-8 my-4'>
-                <div onClick={() => setOpen((s) => !s)}>
-                  <AiOutlineClose className='text-lg text-[#797c7b]' />
+      </div>
+      <div className='absolute right-2 bottom-16 z-10'>
+        <ThemeToggle />
+      </div>
+      <div className='footer'>
+        <ImAttachment onClick={() => setOpen((s) => !s)} />
+        <form className='input_section ' onSubmit={(e: any) => handleClike(e)}>
+          <input
+            placeholder='Write your message'
+            className='w-full '
+            value={message}
+            type='text'
+            onChange={(e) => {
+              setMessage(e.target.value);
+            }}
+          />
+          <MdContentCopy className='absolute top-3 right-1 text-[#797C7B]' />
+        </form>
+        {message ? (
+          <div className='send_icon' onClick={(e) => handleClike(e)}>
+            <IoSend className='text-[20px] pl-1' />
+          </div>
+        ) : (
+          <div className='flex items-center gap-2 text-2xl'>
+            <ImageUploading
+              multiple
+              value={images}
+              onChange={onChange}
+              maxNumber={maxNumber}
+              dataURLKey='data_url'
+              acceptType={["jpg"]}
+            >
+              {({ onImageUpload, dragProps }) => (
+                <div className='upload__image-wrapper'>
+                  <div onClick={onImageUpload} {...dragProps}>
+                    <FiCamera />
+                  </div>
                 </div>
-                <div className='font-semibold text-center'>Share Content</div>
-                <div></div>
+              )}
+            </ImageUploading>
+            <AiOutlineAudio />
+          </div>
+        )}
+      </div>
+      {open ? (
+        <ModalBox onClick={() => setOpen(false)}>
+          <Popup>
+            <div className='flex  justify-between mx-8 my-4'>
+              <AiOutlineClose
+                onClick={() => setOpen((s) => !s)}
+                className='text-lg text-[#797c7b]'
+              />
+
+              <div className='font-semibold text-center'>Share Content</div>
+              <div></div>
+            </div>
+            <div className='flex px-6 my-5 items-center gap-4'>
+              <div className='p-3 rounded-full text '>
+                <ImageUploading
+                  multiple
+                  value={images}
+                  onChange={onChange}
+                  maxNumber={maxNumber}
+                  dataURLKey='data_url'
+                  acceptType={["jpg"]}
+                >
+                  {({ onImageUpload, dragProps }) => (
+                    <div className='upload__image-wrapper'>
+                      <div onClick={onImageUpload} {...dragProps}>
+                        <FiCamera className='text-2xl text-[#797c7b]' />
+                      </div>
+                    </div>
+                  )}
+                </ImageUploading>
               </div>
-              <div className='flex px-6 my-5 items-center gap-4'>
-                <div className='p-3 rounded-full text '>
-                  <FiCamera className='text-2xl text-[#797c7b]' />
-                </div>
-                <div className='font-bold '>Camera</div>
+              <div className='font-bold '>Camera</div>
+            </div>
+            <hr className='w-[80%] absolute right-2 ' />
+            <div className='flex px-6 my-5 pt-6 items-center gap-4'>
+              <div className='p-3 rounded-full text '>
+                <IoDocumentTextOutline className='text-2xl text-[#797c7b]' />
               </div>
-              <hr className='w-[80%] absolute right-0 ' />
-              <div className='flex px-6 my-5 pt-6 items-center gap-4'>
-                <div className='p-3 rounded-full text '>
-                  <IoDocumentTextOutline className='text-2xl text-[#797c7b]' />
-                </div>
-                <div>
-                  <div className='font-bold '>Documents</div>
-                  <span className='text-sm text-[#797c7b]'>
-                    Share your files
-                  </span>
-                </div>
+              <div>
+                <div className='font-bold '>Documents</div>
+                <span className='text-sm text-[#797c7b]'>Share your files</span>
               </div>
-              <hr className='w-[80%] absolute right-0' />
-              <div className='flex px-6 my-5 pt-6 items-center gap-4'>
-                <div className='p-3 rounded-full text '>
-                  <GiNetworkBars className='text-2xl text-[#797c7b]' />
-                </div>
-                <div>
-                  <div className='font-bold '>Create a poll</div>
-                  <span className='text-sm text-[#797c7b]'>
-                    Create a poll for any querry
-                  </span>
-                </div>
+            </div>
+            <hr className='w-[80%] absolute right-2' />
+            <div className='flex px-6 my-5 pt-6 items-center gap-4'>
+              <div className='p-3 rounded-full text '>
+                <GiNetworkBars className='text-2xl text-[#797c7b]' />
               </div>
-              <hr className='w-[80%] absolute right-0' />
-              <div className='flex px-6 my-5 pt-6 items-center gap-4'>
-                <div className='p-3 rounded-full text '>
-                  <BsFillImageFill className='text-2xl text-[#797c7b]' />
-                </div>
-                <div>
-                  <div className='font-bold '>Media</div>
-                  <span className='text-sm text-[#797c7b]'>
-                    Share photos and videos
-                  </span>
-                </div>
+              <div>
+                <div className='font-bold '>Create a poll</div>
+                <span className='text-sm text-[#797c7b]'>
+                  Create a poll for any querry
+                </span>
               </div>
-              <hr className='w-[80%] absolute right-0' />
-              <div className='flex px-6 my-5 pt-6 items-center gap-4'>
-                <div className='p-3 rounded-full text '>
-                  <FaRegUserCircle className='text-2xl text-[#797c7b]' />
-                </div>
-                <div>
-                  <div className='font-bold '>Contact</div>
-                  <span className='text-sm text-[#797c7b]'>
-                    Share your contacts
-                  </span>
-                </div>
+            </div>
+            <hr className='w-[80%] absolute right-2' />
+            <div className='flex px-6 my-5 pt-6 items-center gap-4'>
+              <div className='p-3 rounded-full text '>
+                <BsFillImageFill className='text-2xl text-[#797c7b]' />
               </div>
-              <hr className='w-[80%] absolute right-0' />
-              <div className='flex px-6 my-5 pt-6 items-center gap-4'>
-                <div className='p-3 rounded-full text '>
-                  <TfiLocationPin className='text-2xl text-[#797c7b]' />
-                </div>
-                <div>
-                  <div className='font-bold '>Location</div>
-                  <span className='text-sm text-[#797c7b]'>
-                    Share your location
-                  </span>
-                </div>
+              <div>
+                <div className='font-bold '>Media</div>
+                <span className='text-sm text-[#797c7b]'>
+                  Share photos and videos
+                </span>
               </div>
-              <hr className='w-[80%] absolute right-0' />
-            </Popup>
-          </ModalBox>
-        ) : null}
-      </Container>
-    </>
+            </div>
+            <hr className='w-[80%] absolute right-2' />
+            <div className='flex px-6 my-5 pt-6 items-center gap-4'>
+              <div className='p-3 rounded-full text '>
+                <FaRegUserCircle className='text-2xl text-[#797c7b]' />
+              </div>
+              <div>
+                <div className='font-bold '>Contact</div>
+                <span className='text-sm text-[#797c7b]'>
+                  Share your contacts
+                </span>
+              </div>
+            </div>
+            <hr className='w-[80%] absolute right-2' />
+            <div className='flex px-6 my-5 pt-6 items-center gap-4'>
+              <div className='p-3 rounded-full text '>
+                <TfiLocationPin className='text-2xl text-[#797c7b]' />
+              </div>
+              <div>
+                <div className='font-bold '>Location</div>
+                <span className='text-sm text-[#797c7b]'>
+                  Share your location
+                </span>
+              </div>
+            </div>
+            <hr className='w-[80%] absolute right-2' />
+          </Popup>
+        </ModalBox>
+      ) : null}
+    </Container>
   );
 }
 const Container = styled.div`
@@ -308,13 +322,17 @@ const Container = styled.div`
     display: none;
   }
   .footer {
+    max-width: 450px;
     background-color: var(--color-bg-primary);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 16px;
+    padding: 12px 16px 20px 16px;
     font-size: 24px;
     line-height: 32px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
   }
   .input_section {
     position: relative;

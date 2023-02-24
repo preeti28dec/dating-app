@@ -21,7 +21,5 @@ export default function Home() {
   );
 }
 const Container = styled.div`
-  /* max-width: 450px;
-  width: 100%;
-  margin: auto; */
+  height: 100vh;
 `;

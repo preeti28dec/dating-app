@@ -11,8 +11,10 @@ export default function ThemeToggle() {
   return (
     <ToggleButton type='button' onClick={() => setActiveTheme(inactiveTheme)}>
       <ToggleThumb theme={activeTheme} />
-      <span>🌙</span>
-      <span>☀️</span>
+      <div className="flex gap-2 items-center">
+        <div>🌙</div>
+        <div>☀️</div>
+      </div>
     </ToggleButton>
   );
 }
@@ -24,7 +26,7 @@ const ToggleButton = styled.button`
   position: absolute;
   bottom: 10px;
   right: 10px;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   line-height: 1;
   width: var(--toggle-width);
   height: var(--toggle-height);
