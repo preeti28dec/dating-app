@@ -179,7 +179,7 @@ const Root = styled.div`
   .user_list {
     background-color: var(--color-bg-primary);
     width: 100%;
-    height: 79vh;
+    height: 80vh;
     overflow: hidden;
     overflow-y: scroll;
     padding: 10px 20px;

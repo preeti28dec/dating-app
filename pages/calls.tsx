@@ -170,7 +170,7 @@ export default function Calls() {
       <div className='user_list'>
         <div className='text_empty'></div>
         <div className='font-semibold'>Recent</div>
-        <div className="pb-8">
+        <div className='pb-8'>
           {userList
             .filter((i) => {
               if (search === "") {
@@ -220,8 +220,8 @@ export default function Calls() {
         </div>
       </div>
       <div className='absolute right-2 bottom-16 z-10'>
-          <ThemeToggle />
-        </div>
+        <ThemeToggle />
+      </div>
       <Footer />
     </Root>
   );
@@ -232,7 +232,8 @@ const Root = styled.div`
   .user_list {
     background-color: var(--color-bg-primary);
     width: 100%;
-    height: 79vh;
+    height: 80vh;
+
     overflow: hidden;
     overflow-y: scroll;
     padding: 10px 20px;

@@ -251,7 +251,7 @@ const Container = styled.div`
   .user_list {
     background-color: var(--color-bg-primary);
     width: 100%;
-    height: 66vh;
+    height: 69vh;
     overflow: hidden;
     overflow-y: scroll;
     padding: 15px 20px 30px 20px;

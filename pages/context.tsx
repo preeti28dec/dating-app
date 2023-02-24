@@ -3,11 +3,12 @@ import React, { useContext, useState } from "react";
 const ProgressContext = React.createContext({});
 
 export default function ContextData(props: any) {
+  const [activePage,setActivePage]=useState<string>('')
   const [activeTheme, setActiveTheme] = useState<string>("light");
   const inactiveTheme = activeTheme === "light" ? "dark" : "light";
   return (
     <ProgressContext.Provider
-      value={{ activeTheme, setActiveTheme, inactiveTheme }}
+      value={{ activeTheme, setActiveTheme, inactiveTheme,activePage,setActivePage }}
     >
       {props.children}
     </ProgressContext.Provider>
