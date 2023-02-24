@@ -10,6 +10,7 @@
     "icons": [
         {
             "src": "/asses/user_call2.jpg",
+            "purpose": "any maskable",
             "sizes": "192x192",
             "type": "image/jpg"
         },
