@@ -152,7 +152,7 @@ export default function Contact() {
                           <div>
                             <div className='font-semibold'> {i.name}</div>
                             <div className='flex items-center gap-2'>
-                              <div className='text-sm text-[#989e9c]'>
+                              <div className='text-sm text-[#797C7B]'>
                                 {i.desc}
                               </div>
                             </div>
