@@ -9,25 +9,25 @@
     "description": "Try create new App",
     "icons": [
         {
-            "src": "/asses/user_call2.jpg",
+            "src": "/asses/camera2.webp",
             "purpose": "any maskable",
             "sizes": "192x192",
-            "type": "image/jpg"
+            "type": "image/webp"
         },
         {
-            "src": "/asses/user_call2.jpg",
+            "src": "/asses/camera2.webp",
             "sizes": "256x256",
-            "type": "image/jpg"
+            "type": "image/webp"
         },
         {
-            "src": "/asses/user_call2.jpg",
+            "src": "/asses/camera2.webp",
             "sizes": "384x384",
-            "type": "image/jpg"
+            "type": "image/webp"
         },
         {
-            "src": "/asses/user_call2.jpg",
+            "src": "/asses/camera2.webp",
             "sizes": "512x512",
-            "type": "image/jpg"
+            "type": "image/webp"
         }
     ]
 }
