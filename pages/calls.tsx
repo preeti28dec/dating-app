@@ -202,7 +202,7 @@ export default function Calls() {
                               : ""
                           }
                         >
-                          {i.icon}{" "}
+                          {/* {i.icon}{" "} */}
                         </div>
                         <div className='text-sm text-[#989e9c]'>{i.time}</div>
                       </div>
