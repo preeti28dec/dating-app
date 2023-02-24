@@ -199,7 +199,7 @@ export default function Home() {
 
         <div className='user_list'>
           <div className='text_empty'></div>
-          <div className='pb-4'>
+          <div className='pb-10'>
             {userList
               .filter((i) => {
                 if (search === "") {

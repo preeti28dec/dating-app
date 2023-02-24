@@ -123,7 +123,7 @@ export default function Messages() {
                 <div className='text-end p-4 mt-4'>
                   <span className='send_message'>You did your job well!</span>
                   <div className='text-[12px] my-2 text-[#797c7b]'>
-                    09:25 AM
+                    09:26 AM
                   </div>
                 </div>
                 <div className='flex gap-4'>
@@ -138,13 +138,13 @@ export default function Messages() {
                       <span className='coming_message'>
                         Have a great working week!!
                       </span>
-                      <div className='my-6'>
+                      <div className='my-6 relative'>
                         <span className='coming_message'>
                           Hope you like it!
                         </span>
-                      </div>
-                      <div className='text-[12px] my-2 text-right text-[#797c7b]'>
-                        09:25 AM
+                        <span className='absolute top-8 left-2  text-[12px]  text-[#797c7b]'>
+                          09:25 AM
+                        </span>
                       </div>
                     </div>
                   </div>

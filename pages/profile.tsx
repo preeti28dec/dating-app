@@ -13,7 +13,7 @@ export default function Profile() {
       <Header
         title={
           <>
-            <div className='py-2'>
+            <div className=''>
               <Link href='/home'>
                 <BsArrowLeft className='p-[2px] text-white text-2xl' />
               </Link>
@@ -131,7 +131,7 @@ const Root = styled.div`
   .user_list {
     background-color: var(--color-bg-primary);
     width: 100%;
-    height: 69.8vh;
+    height: 68.8vh;
     overflow: hidden;
     overflow-y: scroll;
     position: fixed;
