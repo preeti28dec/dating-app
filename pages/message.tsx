@@ -386,8 +386,8 @@ const ModalBox = styled.div`
 const Popup = styled.div`
   background: var(--color-bg-primary);
   width: 100%;
-  height: 70vh;
-  position: absolute;
+  height: 80vh;
+  position: fixed;
   border-radius: 40px 40px 0px 0px;
   bottom: 0;
 `;

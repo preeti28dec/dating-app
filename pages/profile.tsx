@@ -10,16 +10,15 @@ import { IoCallOutline } from "react-icons/io5";
 export default function Profile() {
   return (
     <Root>
-      <ThemeToggle />
       <Header
         title={
           <>
-            <div className='py-6'>
+            <div className='py-2'>
               <Link href='/home'>
                 <BsArrowLeft className='p-[2px] text-white text-2xl' />
               </Link>
               <div className='text-center'>
-                <img src='/assest/user1.png' alt='' className='mx-auto my-2' />
+                <img src='/assest/user1.png' alt='' className='mx-auto ' />
                 <div className='text-white'>Jhon Abraham</div>
                 <div className='text-[12px] text-[#bde0d5]'>@jhonabraham</div>
               </div>
@@ -30,9 +29,9 @@ export default function Profile() {
                   </div>
                 </Link>
                 <Link href='/video-call'>
-                <div className='p-3 rounded-full text '>
-                  <FiVideo className='text-xl ' />
-                </div>
+                  <div className='p-3 rounded-full text '>
+                    <FiVideo className='text-xl ' />
+                  </div>
                 </Link>
                 <Link href='/calls'>
                   <div className='p-3 rounded-full text '>
@@ -77,43 +76,51 @@ export default function Profile() {
         </div>
 
         <div className='image_section'>
-          <div className='w-32 h-32 rounded-xl overflow-hidden'>
+          <div className='w-28 h-28 gallery_img rounded-xl overflow-hidden'>
             <img
               src='/assest/orange.jpg'
               alt='post images'
               className='w-full h-full object-cover'
             />
           </div>
-          <div className='w-32 h-32 rounded-xl overflow-hidden'>
+          <div className='w-28 h-28 gallery_img rounded-xl overflow-hidden'>
             <img
               src='/assest/phone.webp'
               alt='post images'
               className='w-full h-full object-cover'
             />
           </div>
-          <div className='w-32 h-32 rounded-xl overflow-hidden'>
+          <div className='w-28 h-28 gallery_img rounded-xl overflow-hidden'>
             <img
               src='/assest/camera.jpg'
               alt='post images'
               className='w-full h-full object-cover'
             />
           </div>
-          <div className='w-32 h-32 rounded-xl overflow-hidden'>
+          <div className='w-28 h-28 gallery_img rounded-xl overflow-hidden'>
             <img
               src='/assest/phone2.jpg'
               alt='post images'
               className='w-full h-full object-cover'
             />
           </div>
-          <div className='w-32 h-32 rounded-xl overflow-hidden'>
+          <div className='w-28 h-28 gallery_img rounded-xl overflow-hidden'>
             <img
               src='/assest/camera2.webp'
               alt='post images'
               className='w-full h-full object-cover'
             />
           </div>
+          <div className='w-28 h-28 gallery_img rounded-xl overflow-hidden'>
+            <img
+              src='/assest/orange.jpg'
+              alt='post images'
+              className='w-full h-full object-cover'
+            />
+          </div>
         </div>
       </div>
+      <div className="absolute bottom-2 right-3"><ThemeToggle /></div>
     </Root>
   );
 }
@@ -127,6 +134,8 @@ const Root = styled.div`
     height: 69.8vh;
     overflow: hidden;
     overflow-y: scroll;
+    position: fixed;
+    bottom: 0;
     padding: 10px 0px;
     border-radius: 30px 30px 0px 0px;
   }
@@ -147,8 +156,15 @@ const Root = styled.div`
   .image_section {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
     padding: 0px 1rem;
+  }
+  @media (max-width: 375px) {
+    .gallery_img {
+      width: 100%;
+      height: 100%;
+    }
   }
 `;

@@ -13,7 +13,7 @@ export default function ThemeToggle() {
       <ToggleThumb theme={activeTheme} />
       <div className="flex gap-2 items-center">
         <div>🌙</div>
-        <div>☀️</div>
+        <div className="ml-1">☀️</div>
       </div>
     </ToggleButton>
   );
