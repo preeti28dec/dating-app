@@ -117,7 +117,7 @@ export default function SingUpPage() {
           />
           {error && <h2 style={{ color: "red" }}>{error}</h2>}
         </div>
-        <div className='mt-6'>
+        <div className='mt-6 relative'>
           <label>Password</label>
           <input
             className='input'
@@ -177,6 +177,11 @@ const Container = styled.div`
   }
   label {
     color: var(--color-text-secondary);
+  }
+  .eyeIcon {
+    position: absolute;
+    right: 16px;
+    top: 1rem;
   }
   .forget {
     color: var(--color-text-secondary);

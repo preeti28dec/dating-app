@@ -105,7 +105,7 @@ export default function LoginPage() {
           />
           {error && <h2 style={{ color: "red" }}>{error}</h2>}
         </div>
-        <div className='mt-6'>
+        <div className='mt-6 relative'>
           <label>Password</label>
           <input
             className='input'
@@ -149,6 +149,11 @@ height: 100vh;
   }
   label {
     color: var(--color-text-secondary);
+  }
+  .eyeIcon{
+    position: absolute;
+    right: 16px;
+    top: 1rem;
   }
   .forget {
     color: var(--color-text-secondary);
