@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { BsApple, BsArrowLeft } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { TfiFacebook } from "react-icons/tfi";
@@ -40,14 +40,13 @@ export default function LoginPage() {
 
     setEmail(event.target.value);
   };
-  useEffect(()=>{
-    if (email && passwordInput){
-      setLogin(true)
+  useEffect(() => {
+    if (email && passwordInput) {
+      setLogin(true);
+    } else {
+      setLogin(false);
     }
-    else{
-      setLogin(false)
-    }
-  },[passwordInput,email])
+  }, [passwordInput, email]);
 
   return (
     <Container>
@@ -61,7 +60,6 @@ export default function LoginPage() {
               </Link>
             </div>
             <div className='font-bold text-xl pt-5 text-center'>
-              {" "}
               Log in to Chatbox
             </div>
             <p className='px-6 py-4 text-center text-[#797C7B]'>
@@ -79,7 +77,7 @@ export default function LoginPage() {
                 <FcGoogle />
               </div>
               <div className='border rounded-full text-2xl p-1'>
-                <BsApple  />
+                <BsApple />
               </div>
             </div>
 
@@ -125,9 +123,17 @@ export default function LoginPage() {
         </div>
       </div>
       <Link href='/sign-up'>
-      <div className={login?'login-true':'login-false'}>
-        <button className={login?"text-white font-semibold":"font-semibold text-[#797C7B]"} >Login</button>
-      </div>
+        <div className={login ? "login-true" : "login-false"}>
+          <button
+            className={
+              login
+                ? "text-white font-semibold"
+                : "font-semibold text-[#797C7B]"
+            }
+          >
+            Login
+          </button>
+        </div>
       </Link>
       <div className='forget'>Forgot password?</div>
     </Container>
@@ -137,7 +143,7 @@ const Container = styled.div`
   /* max-width: 450px;
   width: 100%;
   margin: auto; */
-height: 100vh;
+  height: 100vh;
   .input {
     border: 1px solid gray;
     border-top: none;
@@ -150,7 +156,7 @@ height: 100vh;
   label {
     color: var(--color-text-secondary);
   }
-  .eyeIcon{
+  .eyeIcon {
     position: absolute;
     right: 16px;
     top: 1rem;

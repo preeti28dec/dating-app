@@ -5,9 +5,7 @@ import Header from "./components/header";
 import ThemeToggle from "./components/ThemeToggle";
 import styled from "styled-components";
 import Link from "next/link";
-import { FiHelpCircle, FiPhoneCall, FiUsers } from "react-icons/fi";
-import { FaRegUserCircle } from "react-icons/fa";
-import { IoSettingsOutline } from "react-icons/io5";
+import { FiHelpCircle, FiUsers } from "react-icons/fi";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { HiOutlineKey } from "react-icons/hi";
 import { MdOutlineQrCodeScanner } from "react-icons/md";
@@ -19,7 +17,7 @@ export default function setting() {
       <Header
         title={
           <>
-            <div className='py-6 flex justify-between items-center'>
+            <div className='py-8 flex justify-between items-center'>
               <Link href='/home'>
                 <BsArrowLeft className='p-[2px] text-white text-2xl' />
               </Link>
@@ -59,17 +57,19 @@ export default function setting() {
               </div>
             </div>
           </div>
-          <div className='flex px-6 my-8 items-center gap-4'>
-            <div className='p-3 rounded-full text '>
-              <BsChatDots className='text-2xl text-[#797c7b]' />
-            </div>
-            <div>
-              <div className='font-semibold '>Chat</div>
-              <div className='text-sm text-[#797c7b]'>
-                Chat history,theme,wallpapers
+          <Link href='/message'>
+            <div className='flex px-6 my-8 items-center gap-4'>
+              <div className='p-3 rounded-full text '>
+                <BsChatDots className='text-2xl text-[#797c7b]' />
+              </div>
+              <div>
+                <div className='font-semibold '>Chat</div>
+                <div className='text-sm text-[#797c7b]'>
+                  Chat history,theme,wallpapers
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
           <div className='flex px-6 my-8 items-center gap-4'>
             <div className='p-3 rounded-full text '>
               <IoNotificationsOutline className='text-2xl text-[#797c7b]' />

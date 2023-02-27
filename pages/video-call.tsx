@@ -20,7 +20,7 @@ export default function VideoCall() {
           />
         </div>
 
-        <Link href='/login'>
+        <Link href='/home'>
           <BsArrowLeft className='text-2xl absolute top-6 m-4' />
         </Link>
         <div className='absolute top-2 m-4 right-2'>

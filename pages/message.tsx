@@ -21,21 +21,13 @@ import ImageUploading from "react-images-uploading";
 
 export default function Messages() {
   const [messageList, setMessageList] = useState<any>([]);
-  const [message, setMessage] = useState("");
   const [images, setImages] = useState<any>([]);
+  const [message, setMessage] = useState("");
   const [open, setOpen] = useState(false);
-  const [showAllMessages, setShowAllMessages] = useState([]);
+  const [addData, setAddData] = useState("");
   const scollToRef = useRef<null | HTMLDivElement>(null);
   const maxNumber = 69;
-  const onChange = (imageList: any) => {
-    setImages(imageList);
-  };
 
-  function handleClike(e: any) {
-    e.preventDefault();
-    setMessageList((s: any) => [...s, message]);
-    setMessage("");
-  }
   useEffect(() => {
     scollToRef?.current?.scrollIntoView({
       behavior: "smooth",
@@ -43,7 +35,19 @@ export default function Messages() {
       inline: "start",
     });
   }, [messageList]);
-  console.log(open);
+
+  const onChange = (imageList: any) => {
+    setImages(imageList);
+  };
+  function handleClike(e: any) {
+    e.preventDefault();
+    setMessageList((s: any) => [...s, message]);
+    setMessage("");
+    const timer = setTimeout(() => {
+      setAddData("hello ");
+    }, 3000);
+    return () => clearTimeout(timer);
+  }
 
   return (
     <Container>
@@ -71,9 +75,11 @@ export default function Messages() {
               </div>
 
               <div className=' text-2xl flex items-center gap-4'>
-                <div>
-                  <IoCallOutline />
-                </div>
+                <Link href='/calls'>
+                  <div>
+                    <IoCallOutline />
+                  </div>
+                </Link>
                 <Link href='/video-call'>
                   <div>
                     <IoVideocamOutline />
@@ -94,67 +100,71 @@ export default function Messages() {
           {messageList.map((i: any, ind: any) => {
             return (
               <div key={ind}>
-                <div className='text-end p-4 mt-4'>
+                <div className='text-end p-4 mt-4 image-item'>
                   <span className='send_message'>{i}</span>
                   <div className='text-[12px] my-2 text-[#797c7b]'>
                     09:25 AM
                   </div>
                 </div>
-                <div className='flex gap-4 '>
-                  <img
-                    src='/assest/user1.png'
-                    alt=''
-                    className='w-12 h-12 mt-2 object-cover rounded-full'
-                  />
-                  <div>
-                    <div className='font-semibold my-2'>Jhon Abraham</div>
+
+                {addData ? (
+                  <div className='flex gap-4 image-item'>
+                    <img
+                      src='/assest/user1.png'
+                      alt=''
+                      className='w-12 h-12 mt-2 object-cover rounded-full'
+                    />
                     <div>
+                      <div className='font-semibold my-2'>Jhon Abraham</div>
                       <div className=''>
-                        <span className='coming_message'>
-                          Have a great working week!!
-                        </span>
-                        <div className='text-[12px] my-2 text-right text-[#797c7b]'>
-                          09:25 AM
+                        <div className=''>
+                          <span className='coming_message '>
+                            Have a great working week!! {addData}
+                          </span>
+                          <div className='text-[12px] my-2 text-right text-[#797c7b]'>
+                            09:25 AM
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className='text-end p-4 mt-4'>
+                ) : // <div className='flex gap-4'>
+                //   <img
+                //     src='/assest/user1.png'
+                //     alt=''
+                //     className='w-12 h-12 mt-2 object-cover rounded-full'
+                //   />
+                //   <div>
+                //     <div className='font-semibold my-2'>Jhon Abraham</div>
+                //     <div className=''>
+                //       <span className='coming_message'>
+                //         Have a great working week!!
+                //       </span>
+                //       <div className='my-6 relative'>
+                //         <span className='coming_message'>
+                //           Hope you like it!
+                //         </span>
+                //         <span className='absolute top-8 left-2  text-[12px]  text-[#797c7b]'>
+                //           09:25 AM
+                //         </span>
+                //       </div>
+                //     </div>
+                //   </div>
+                // </div>
+                null}
+                {/* <div className='text-end p-4 mt-4'>
                   <span className='send_message'>You did your job well!</span>
                   <div className='text-[12px] my-2 text-[#797c7b]'>
                     09:26 AM
                   </div>
-                </div>
-                <div className='flex gap-4'>
-                  <img
-                    src='/assest/user1.png'
-                    alt=''
-                    className='w-12 h-12 mt-2 object-cover rounded-full'
-                  />
-                  <div>
-                    <div className='font-semibold my-2'>Jhon Abraham</div>
-                    <div className=''>
-                      <span className='coming_message'>
-                        Have a great working week!!
-                      </span>
-                      <div className='my-6 relative'>
-                        <span className='coming_message'>
-                          Hope you like it!
-                        </span>
-                        <span className='absolute top-8 left-2  text-[12px]  text-[#797c7b]'>
-                          09:25 AM
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                </div> */}
+                {/* <div>{addData}</div> */}
               </div>
             );
           })}
           <div className='m-4 '>
             {images.map((image: any, index: any) => (
-              <div key={index} className='image-item my-4 flex justify-end'>
+              <div key={index} className='image-item my-4 flex justify-end '>
                 <img
                   src={image.data_url}
                   alt=''
@@ -210,7 +220,7 @@ export default function Messages() {
         )}
       </div>
       {open ? (
-        <ModalBox onClick={() => setOpen(false)}>
+        <ModalBox >
           <Popup>
             <div className='flex  justify-between mx-8 my-4'>
               <AiOutlineClose
@@ -310,6 +320,9 @@ export default function Messages() {
 const Container = styled.div`
   height: 100vh;
   position: relative;
+  .image-item {
+    animation: floatup 0.5s forwards;
+  }
   .user_list {
     background-color: var(--color-bg-primary);
     width: 100%;
@@ -374,10 +387,22 @@ const Container = styled.div`
     border-radius: 0px 8px 8px 8px;
     word-wrap: break-word;
   }
+
+  @keyframes floatup {
+    from {
+      transform: translateY(24px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
 `;
 
 const ModalBox = styled.div`
   background: rgba(0, 14, 8, 0.5);
+  /* max-width: 450px; */
   width: 100%;
   height: 100vh;
   position: absolute;
@@ -385,6 +410,7 @@ const ModalBox = styled.div`
 `;
 const Popup = styled.div`
   background: var(--color-bg-primary);
+  max-width: 450px;
   width: 100%;
   height: 80vh;
   position: fixed;
