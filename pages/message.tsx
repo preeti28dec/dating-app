@@ -24,7 +24,6 @@ export default function Messages() {
   const [images, setImages] = useState<any>([]);
   const [message, setMessage] = useState("");
   const [open, setOpen] = useState(false);
-  const [addData, setAddData] = useState("");
   const scollToRef = useRef<null | HTMLDivElement>(null);
   const maxNumber = 69;
 
@@ -41,13 +40,26 @@ export default function Messages() {
   };
   function handleClike(e: any) {
     e.preventDefault();
-    setMessageList((s: any) => [...s, message]);
+    setMessageList((s: any) => [
+      ...s,
+      { msg: message, userId: 1, img: images },
+    ]);
     setMessage("");
+  }
+
+  useEffect(() => {
+    if (messageList[messageList.length - 1]?.userId !== 1) return;
     const timer = setTimeout(() => {
-      setAddData("hello ");
+      setMessageList((s: any) => [
+        ...s,
+        { msg: "Yo, wazzz upppp!!!", userId: 2 },
+      ]);
+      setImages([]);
     }, 3000);
     return () => clearTimeout(timer);
-  }
+  }, [messageList]);
+
+  console.log(messageList, "mmmm");
 
   return (
     <Container>
@@ -100,15 +112,33 @@ export default function Messages() {
           {messageList.map((i: any, ind: any) => {
             return (
               <div key={ind}>
-                <div className='text-end p-4 mt-4 image-item'>
-                  <span className='send_message'>{i}</span>
-                  <div className='text-[12px] my-2 text-[#797c7b]'>
-                    09:25 AM
-                  </div>
-                </div>
-
-                {addData ? (
-                  <div className='flex gap-4 image-item'>
+                {i.userId == 1 ? (
+                  <>
+                    <div className='text-end p-4 mt-4 image-item'>
+                      <span className='send_message'>{i.msg}</span>
+                      <div className='text-[12px] my-2 text-[#797c7b]'>
+                        09:25 AM
+                      </div>
+                    </div>
+                    {/* {i.img? */}
+                    <div className='m-4 '>
+                      {i.img?.map((image: any, index: any) => (
+                        <div
+                          key={index}
+                          className='image-item my-4 flex justify-end '
+                        >
+                          <img
+                            src={image.data_url}
+                            alt=''
+                            className='w-64 h-36 object-cover rounded-lg '
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    {/* :null} */}
+                  </>
+                ) : (
+                  <div className='flex gap-4 image-item' key={ind}>
                     <img
                       src='/assest/user1.png'
                       alt=''
@@ -119,7 +149,7 @@ export default function Messages() {
                       <div className=''>
                         <div className=''>
                           <span className='coming_message '>
-                            Have a great working week!! {addData}
+                            Have a great working week!!
                           </span>
                           <div className='text-[12px] my-2 text-right text-[#797c7b]'>
                             09:25 AM
@@ -128,51 +158,11 @@ export default function Messages() {
                       </div>
                     </div>
                   </div>
-                ) : // <div className='flex gap-4'>
-                //   <img
-                //     src='/assest/user1.png'
-                //     alt=''
-                //     className='w-12 h-12 mt-2 object-cover rounded-full'
-                //   />
-                //   <div>
-                //     <div className='font-semibold my-2'>Jhon Abraham</div>
-                //     <div className=''>
-                //       <span className='coming_message'>
-                //         Have a great working week!!
-                //       </span>
-                //       <div className='my-6 relative'>
-                //         <span className='coming_message'>
-                //           Hope you like it!
-                //         </span>
-                //         <span className='absolute top-8 left-2  text-[12px]  text-[#797c7b]'>
-                //           09:25 AM
-                //         </span>
-                //       </div>
-                //     </div>
-                //   </div>
-                // </div>
-                null}
-                {/* <div className='text-end p-4 mt-4'>
-                  <span className='send_message'>You did your job well!</span>
-                  <div className='text-[12px] my-2 text-[#797c7b]'>
-                    09:26 AM
-                  </div>
-                </div> */}
-                {/* <div>{addData}</div> */}
+                )}
               </div>
             );
           })}
-          <div className='m-4 '>
-            {images.map((image: any, index: any) => (
-              <div key={index} className='image-item my-4 flex justify-end '>
-                <img
-                  src={image.data_url}
-                  alt=''
-                  className='w-64 h-36 object-cover rounded-lg '
-                />
-              </div>
-            ))}
-          </div>
+
           <div ref={scollToRef} />
         </div>
       </div>
@@ -220,7 +210,7 @@ export default function Messages() {
         )}
       </div>
       {open ? (
-        <ModalBox >
+        <ModalBox>
           <Popup>
             <div className='flex  justify-between mx-8 my-4'>
               <AiOutlineClose
@@ -378,6 +368,8 @@ const Container = styled.div`
     padding: 5px;
     border-radius: 8px 0px 8px 8px;
     word-wrap: break-word;
+    width: 200px;
+    display: inline-block;
   }
   .coming_message {
     background-color: var(--bg-color);
@@ -386,6 +378,8 @@ const Container = styled.div`
     margin: 6px 0px;
     border-radius: 0px 8px 8px 8px;
     word-wrap: break-word;
+    word-wrap: break-word;
+    width: 200px;
   }
 
   @keyframes floatup {
