@@ -8,6 +8,7 @@ import Header from "./components/header";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import toast from "react-hot-toast";
 import ThemeToggle from "./components/ThemeToggle";
+import { useRouter } from "next/router";
 
 export default function LoginPage() {
   const [passwordType, setPasswordType] = useState("password");
@@ -15,7 +16,13 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [login, setLogin] = useState(false);
-
+  const router = useRouter();
+  function logiData() {
+    let data = JSON.parse(localStorage.getItem("userRegister") as any);
+    if (data.email === email && data.password === passwordInput) {
+      router.push("/home");
+    }
+  }
   const handlePasswordChange = (evnt: any) => {
     setPasswordInput(evnt.target.value);
   };
@@ -122,20 +129,23 @@ export default function LoginPage() {
           </div>
         </div>
       </div>
-      <Link href='/sign-up'>
-        <div className={login ? "login-true" : "login-false"}>
-          <button
-            className={
-              login
-                ? "text-white font-semibold"
-                : "font-semibold text-[#797C7B]"
-            }
-          >
-            Login
-          </button>
-        </div>
-      </Link>
-      <div className='forget'>Forgot password?</div>
+
+      <div className={login ? "login-true" : "login-false"}>
+        <button
+          onClick={logiData}
+          className={
+            login ? "text-white font-semibold" : "font-semibold text-[#797C7B]"
+          }
+        >
+          Login
+        </button>
+      </div>
+      <div className='forget'>
+        Forgot password?{" "}
+        <Link href='/sign-up'>
+          <span className='text-sm text-[#797979]'>Singup page</span>
+        </Link>
+      </div>
     </Container>
   );
 }

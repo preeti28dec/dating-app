@@ -130,7 +130,7 @@ export default function Messages() {
                           <img
                             src={image.data_url}
                             alt=''
-                            className='w-64 h-36 object-cover rounded-lg '
+                            className=' object-cover rounded '
                           />
                         </div>
                       ))}

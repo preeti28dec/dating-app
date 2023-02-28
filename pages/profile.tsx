@@ -129,6 +129,7 @@ const Root = styled.div`
   background-color: var(--calls-bg-color);
   height: 100vh;
   .user_list {
+    max-width: 450px;
     background-color: var(--color-bg-primary);
     width: 100%;
     height: 68.8vh;
@@ -154,6 +155,7 @@ const Root = styled.div`
     background-color: #e6e6e6;
   }
   .image_section {
+ 
     display: flex;
     align-items: center;
     justify-content: center;

@@ -7,6 +7,7 @@ import styled from "styled-components";
 import Header from "./components/header";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import ThemeToggle from "./components/ThemeToggle";
+import { useRouter } from "next/router";
 
 export default function SingUpPage() {
   const [passwordType, setPasswordType] = useState("password");
@@ -16,7 +17,7 @@ export default function SingUpPage() {
   const [name, setName] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [login, setLogin] = useState(false);
-
+  const router = useRouter();
   const handlePasswordChange = (evnt: any) => {
     setPasswordInput(evnt.target.value);
   };
@@ -48,7 +49,18 @@ export default function SingUpPage() {
       setLogin(false);
     }
   }, [passwordInput, email, confirmPassword, name]);
-
+  function onSignUp() {
+    const obj = {
+      name: name,
+      email: email,
+      password: passwordInput,
+      token: name + passwordInput + email,
+    };
+    if (name && email && passwordInput === confirmPassword) {
+      localStorage.setItem("userRegister", JSON.stringify(obj));
+      router.push("/home");
+    }
+  }
   return (
     <Container>
       <ThemeToggle />
@@ -102,7 +114,6 @@ export default function SingUpPage() {
             type='text'
             placeholder='Enter your name'
           />
-          {error && <h2 style={{ color: "red" }}>{error}</h2>}
         </div>
         <div className='mt-6'>
           <label>Email</label>
@@ -147,19 +158,18 @@ export default function SingUpPage() {
           />
         </div>
       </div>
-      <Link href='/home'>
-        <div className={login ? "login-true" : "login-false"}>
-          <button
-            className={
-              login
-                ? "text-white font-semibold"
-                : "font-semibold text-[#797C7B]"
-            }
-          >
-            Create an account
-          </button>
-        </div>
-      </Link>
+
+      <div className={login ? "login-true" : "login-false"}>
+        <button
+          className={
+            login ? "text-white font-semibold" : "font-semibold text-[#797C7B]"
+          }
+          onClick={onSignUp}
+        >
+          Create an account
+        </button>
+      </div>
+
       <div className='forget'>Forgot password?</div>
     </Container>
   );
